@@ -40,6 +40,10 @@ AdvancedDistributedTrainingSystem/
 │
 ├── main.py
 │
+├── storage.py
+│
+├── protocol_buffer.proto
+│
 ├── tests/
 │   ├── test_distributed_computing.py
 │   ├── test_search_engine_algorithm.py
