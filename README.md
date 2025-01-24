@@ -15,17 +15,18 @@
 ## Project Structure
 ```plaintext
 AdvancedDistributedTrainingSystem/
+├── ai_resource_manager.py
+├── build_exe.py
+├── communication.py
 ├── data_collector.py
+├── data_loader.py
 ├── distributed_setup.py
+├── grpc_communication.py
+├── main.py
 ├── model.py
 ├── optimizer.py
-├── data_loader.py
-├── communication.py
-├── grpc_communication.py
-├── distributed.proto
 ├── train.py
-├── main.py
-└── build_exe.py
+└── distributed.proto
 ```
 
 - `distributed_setup.py`: Sets up and cleans up the distributed training environment.
