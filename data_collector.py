@@ -119,14 +119,7 @@ class IntegrationController:
         processed_data = self.data_processor.preprocess_data(raw_data)
         self.data_storage.store_data(processed_data, filename)
 
-# Example usage
-if __name__ == "__main__":
-    controller = IntegrationController(storage_path="data")
-    controller.collect_and_store_data(
-        source_name="weather",
-        params={"q": "Tokyo", "appid": "your_weather_api_key_here"},
-        filename="weather_data_Tokyo"
-    )
+
 # Example usage
 if __name__ == "__main__":
     api_key = "your_api_key_here"
@@ -138,3 +131,9 @@ if __name__ == "__main__":
     collector.store_data(classified_data)
     collector = DataCollector(api_key="your_api_key_here", kafka_servers=["localhost:9092"])
     collector.run()
+     controller = IntegrationController(storage_path="data")
+    controller.collect_and_store_data(
+        source_name="weather",
+        params={"q": "Tokyo", "appid": "your_weather_api_key_here"},
+        filename="weather_data_Tokyo"
+    )
