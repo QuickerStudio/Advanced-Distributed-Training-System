@@ -1,11 +1,3 @@
-AdvancedDistributedTrainingSystem/
-├── 
-├── model.py
-├── 
-├── data_loader.py
-├── communication.py
-├── train.py
-└── main.py
 import torch
 import torch.distributed as dist
 
