@@ -15,6 +15,7 @@
 ## Project Structure
 ```plaintext
 AdvancedDistributedTrainingSystem/
+├── data_collector.py
 ├── distributed_setup.py
 ├── model.py
 ├── optimizer.py
