@@ -76,6 +76,33 @@ AdvancedDistributedTrainingSystem/
    ```sh
    python main.py
    ```
+## Usage Instructions
+
+### Environment Setup
+1. **Install Dependencies**:
+   ```sh
+   pip install requests kafka-python torch PyInstaller
+   ```
+
+2. **Configure Kafka Cluster**:
+   Please refer to the [Kafka Official Documentation](https://kafka.apache.org/documentation/) for setting up the Kafka cluster.
+
+### Running the Project
+1. **Start Kafka Services**:
+   ```sh
+   bin/zookeeper-server-start.sh config/zookeeper.properties
+   bin/kafka-server-start.sh config/server.properties
+   ```
+
+2. **Run Data Collection and Training**:
+   ```sh
+   python main.py
+   ```
+
+3. **Package the Project into an EXE File**:
+   ```sh
+   python build_exe.py
+   ```
 
 ### Building the EXE File
 1. Install PyInstaller:
@@ -89,6 +116,48 @@ AdvancedDistributedTrainingSystem/
    ```
 
 This will create a single EXE file for the project, which can be distributed and run on other machines.
+### Example Usage
+1. **DataCollector**:
+   The `DataCollector` class is responsible for distributed data collection using Kafka and APIs.
+   ```python
+   api_key = "your_api_key_here"
+   kafka_servers = ["localhost:9092"]
+   data_types = ["text", "image", "audio", "video", "code"]
+   collector = DataCollector(api_key, kafka_servers)
+   collector.collect_data_threaded(data_types)
+   classified_data = collector.classify_data()
+   collector.store_data(classified_data)
+   ```
+
+2. **Distributed Training**:
+   The `main.py` script initializes the distributed training process and starts the gRPC server and client.
+   ```python
+   import torch.multiprocessing as mp
+   from train import train
+   import grpc_communication
+   from data_collector import DataCollector
+
+   if __name__ == '__main__':
+       api_key = "your_api_key_here"
+       kafka_servers = ["localhost:9092"]
+       data_types = ["text", "image", "audio", "video", "code"]
+       collector = DataCollector(api_key, kafka_servers)
+       collector.collect_data_threaded(data_types)
+       classified_data = collector.classify_data()
+       collector.store_data(classified_data)
+
+       world_size = 4
+       dataset = torch.utils.data.TensorDataset(torch.randn(1000, 128), torch.randn(1000, 128))
+       mp.spawn(train, args=(world_size, dataset), nprocs=world_size, join=True)
+       
+       # Start the gRPC server
+       grpc_communication.serve()
+       
+       # Run the gRPC client
+       grpc_communication.run_client()
+   ```
+## Contribution Guide
+We welcome contributions through issues and pull requests. For detailed information, please refer to the [Contribution Guide](CONTRIBUTING.md).
 
 ## Contributing
 Contributions are welcome! Please feel free to submit a Pull Request or open an Issue.
