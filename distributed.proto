@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+service Distributed {
+    rpc send_gradients (GradientMessage) returns (Response) {}
+}
+
+message GradientMessage {
+    string data = 1;
+}
+
+message Response {
+    string message = 1;
+}
