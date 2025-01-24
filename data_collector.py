@@ -1,9 +1,8 @@
 import threading
 import requests
 from kafka import KafkaProducer, KafkaConsumer
-from kafka.errors import KafkaError
-from typing import List, Dict
 import json
+from typing import List, Dict
 
 class DataCollector:
     def __init__(self, api_key: str, kafka_servers: List[str]):
