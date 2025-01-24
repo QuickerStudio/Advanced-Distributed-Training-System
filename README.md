@@ -15,18 +15,53 @@
 ## Project Structure
 ```plaintext
 AdvancedDistributedTrainingSystem/
-├── ai_resource_manager.py
-├── build_exe.py
-├── communication.py
+│
+├── algorithm_library.py
+│
 ├── data_collector.py
-├── data_loader.py
-├── distributed_setup.py
+│
+├── ai_resource_manager.py
+│
 ├── grpc_communication.py
-├── main.py
-├── model.py
-├── optimizer.py
+│
+├── storage_manager.py
+│
 ├── train.py
-└── distributed.proto
+│
+├── distributed_setup.py
+│
+├── model.py
+│
+├── optimizer.py
+│
+├── data_loader.py
+│
+├── communication.py
+│
+├── main.py
+│
+├── tests/
+│   ├── test_distributed_computing.py
+│   ├── test_search_engine_algorithm.py
+│   ├── test_crawler_technology.py
+│   ├── test_index_management.py
+│   ├── test_nlp.py
+│   ├── test_machine_learning.py
+│   ├── test_caching_and_storage.py
+│   ├── test_load_balancing.py
+│   ├── test_user_behavior_analysis.py
+│   ├── test_ai_resource_manager.py
+│   ├── test_grpc_communication.py
+│   ├── test_storage_manager.py
+│   ├── test_train.py
+│   ├── test_distributed_setup.py
+│   ├── test_model.py
+│   ├── test_optimizer.py
+│   ├── test_data_loader.py
+│   ├── test_communication.py
+│
+├── requirements.txt
+└── README.md
 ```
 
 - `distributed_setup.py`: Sets up and cleans up the distributed training environment.
