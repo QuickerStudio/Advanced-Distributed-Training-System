@@ -429,7 +429,7 @@ This will create a single EXE file for the project, which can be distributed and
 We welcome contributions through issues and pull requests. For detailed information, please refer to the [Contribution Guide](CONTRIBUTING.md).
 
 ### Contact Information
-If you have any questions or suggestions, please contact us through GitHub Issues: [https://github.com/yourusername/AdvancedDistributedTrainingSystem/issues](https://github.com/yourusername/AdvancedDistributedTrainingSystem/issues)
+If you have any questions or suggestions, please contact us through GitHub Issues: [https://github.com/QuickerStudio/AdvancedDistributedTrainingSystem/issues](https://github.com/yourusername/AdvancedDistributedTrainingSystem/issues)
 ```
 
 ## Contribution Guide
